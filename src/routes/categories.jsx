@@ -1,4 +1,3 @@
-// categories.jsx
 import React from "react";
 import { useLoaderData, Link } from "react-router-dom";
 
@@ -12,14 +11,15 @@ export default function Categories() {
   const { categories } = useLoaderData();
   return (
     <>
-      <h2>Categories</h2>
-      <ul>
-        {categories.map((category) => (
-          <li key={category}>
-            <Link to={`/categories/${category}`}>{category}</Link>
-          </li>
-        ))}
-      </ul>
+      <div id="categories">
+        <ul>
+          {categories.map((category) => (
+            <li key={category}>
+              <Link to={`/categories/${category}`}> {category}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }

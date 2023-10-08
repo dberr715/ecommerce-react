@@ -1,9 +1,11 @@
 import { Outlet } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 export default function Root() {
   return (
     <>
-      <h1>eCommerce Store</h1>
+      <NavBar />
+      <h1>Ocean Commerce</h1>
       <Outlet />
     </>
   );
