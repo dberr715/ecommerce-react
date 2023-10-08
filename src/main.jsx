@@ -5,6 +5,7 @@ import ErrorPage from "./routes/error-page";
 import Root from "./routes/root";
 import Home, { loader as homeLoader } from "./routes/home";
 import Items, { loader as itemLoader } from "./routes/items";
+import Categories, { loader as categoryLoader } from "./routes/categories";
 
 import "./index.css";
 
@@ -19,8 +20,9 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: homeLoader,
       },
+      { path: "categories", element: <Categories />, loader: categoryLoader },
       {
-        path: "items/:itemId",
+        path: "categories/:category",
         element: <Items />,
         loader: itemLoader,
       },

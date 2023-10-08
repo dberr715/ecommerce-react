@@ -1,12 +1,14 @@
+// categories.jsx
+import React from "react";
 import { useLoaderData, Link } from "react-router-dom";
 
 export async function loader() {
-  const url = "https://fakestoreapi.com/products/categories";
+  const url = `https://fakestoreapi.com/products/categories`;
   const categories = await fetch(url).then((response) => response.json());
   return { categories };
 }
 
-export default function Home() {
+export default function Categories() {
   const { categories } = useLoaderData();
   return (
     <>

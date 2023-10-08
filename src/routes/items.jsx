@@ -1,26 +1,22 @@
+import React from "react";
 import { useLoaderData } from "react-router-dom";
 
 export async function loader({ params }) {
-  // const url = `https://fakestoreapi.com/products/1`;
-
-  const url = `https://fakestoreapi.com/products/${params.itemId}`;
-  const item = await fetch(url).then((response) => response.json());
-  console.log(item);
-  return { item };
+  const url = `https://fakestoreapi.com/products/category/${params.category}`;
+  const items = await fetch(url).then((response) => response.json());
+  return { items };
 }
 
 export default function Items() {
-  const { item } = useLoaderData();
-console.log(item.title);
+  const { items } = useLoaderData();
   return (
     <>
-      <p>Item: {item.title}</p>
-      <p>Category: {item.category}</p>
-      <p>Cost: ${item.price}</p>
-      <p>Description: {item.description}</p>
-
-      <img src={item.image} />
-      <p>Rating....</p>
+      <h2>Products</h2>
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>{item.title}</li>
+        ))}
+      </ul>
     </>
   );
 }
